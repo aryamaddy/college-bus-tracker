@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1168d8" />
+    <title>CampusRide — College Bus Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./theme-yellow.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="brand-mark"><span class="brand-icon">↗</span><span>CampusRide</span></div>
+        <div class="topbar-actions"><span class="role-pill">Student</span><button class="avatar" aria-label="Open profile">AS</button></div>
+      </header>
+
+      <section class="page-heading">
+        <div>
+          <p class="eyebrow">Saturday, 17 October 2026</p>
+          <h1>Good morning, Aarav</h1>
+          <p class="muted">Track your college bus and reach your checkpoint on time.</p>
+        </div>
+        <button class="outline-button" id="refreshButton">↻ Refresh</button>
+      </section>
+
+      <section class="status-card">
+        <div class="status-card-top"><div><span class="live-dot"></span><span class="live-label">LIVE TRIP</span></div><span class="updated" id="updatedAt">Updated 20 sec ago</span></div>
+        <div class="route-heading"><div><span class="route-code">ROUTE 01</span><h2>Main Gate <span>→</span> College Campus</h2></div><span class="bus-number">BUS 04</span></div>
+        <div class="status-summary">
+          <div><span class="summary-label">Next checkpoint</span><strong>A Checkpoint</strong><span class="summary-note">1.8 km away</span></div>
+          <div><span class="summary-label">Estimated arrival</span><strong class="eta">8 min</strong><span class="summary-note">Around 8:18 AM</span></div>
+          <div><span class="summary-label">Students waiting</span><strong id="totalWaiting">8</strong><span class="summary-note">Across the route</span></div>
+        </div>
+        <button class="primary-button" id="mapButton">View live map <span>→</span></button>
+      </section>
+
+      <div class="content-grid">
+        <section class="panel checkpoints-panel">
+          <div class="panel-heading"><div><p class="eyebrow">ROUTE PROGRESS</p><h2>Today's checkpoints</h2></div><button class="text-button" id="routeButton">Full route</button></div>
+          <div class="checkpoint-list" id="checkpointList"></div>
+        </section>
+        <section class="panel waiting-panel">
+          <div class="panel-heading"><div><p class="eyebrow">YOUR BOARDING PLAN</p><h2>Where are you waiting?</h2></div></div>
+          <p class="muted small-copy">Tell the driver you are ready at your checkpoint. You can cancel anytime.</p>
+          <div class="selected-stop"><span class="stop-pin">●</span><div><strong id="selectedCheckpoint">A Checkpoint</strong><span>Selected checkpoint</span></div><button class="change-button" id="changeButton">Change</button></div>
+          <button class="waiting-button" id="waitingButton">I’m waiting here <span>→</span></button>
+          <p class="helper-text" id="waitingHelper">The driver will see the number of students waiting, not your personal details.</p>
+        </section>
+      </div>
+
+      <section class="panel map-panel" id="mapPanel">
+        <div class="panel-heading"><div><p class="eyebrow">LIVE MAP</p><h2>Bus location</h2></div><span class="map-updated">GPS updated 20 sec ago</span></div>
+        <div class="map-canvas"><div class="map-label label-main">Main Gate</div><div class="map-label label-a">A Checkpoint</div><div class="map-label label-b">B Checkpoint</div><div class="map-label label-campus">College Campus</div><div class="route-line"></div><div class="bus-marker">↗</div><div class="checkpoint-marker marker-a">A</div><div class="checkpoint-marker marker-b">B</div><div class="campus-marker">⌂</div><div class="map-road road-one"></div><div class="map-road road-two"></div></div>
+      </section>
+
+      <section class="driver-panel" id="driverPanel">
+        <div><p class="eyebrow">DRIVER PREVIEW</p><h2>Driver controls</h2><p class="muted">This is a preview of the driver trip flow.</p></div>
+        <div class="driver-status"><span class="status-indicator" id="driverIndicator"></span><span id="driverStatus">Trip active · GPS sharing on</span></div>
+        <button class="danger-button" id="endTripButton">End trip</button>
+      </section>
+
+      <nav class="bottom-nav"><a class="active" href="#"><span>⌂</span>Home</a><a href="#mapPanel"><span>◉</span>My route</a><a href="#"><span>◷</span>Trips</a><a href="#"><span>◯</span>Profile</a></nav>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>

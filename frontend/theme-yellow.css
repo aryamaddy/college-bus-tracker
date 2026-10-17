@@ -1,0 +1,10 @@
+/* Yellow campus theme overrides */
+:root {
+  --blue: #d99a00;
+  --blue-dark: #a86f00;
+}
+
+.role-pill { background: #fff3c9; color: #9a6900; }
+.status-card { background: linear-gradient(120deg, #a86f00, #e0a400); box-shadow: 0 18px 35px rgba(217, 154, 0, .22); }
+.checkpoint.current .checkpoint-icon { background: #fff1bf; box-shadow: 0 0 0 5px #fff9e4; }
+.bus-marker { box-shadow: 0 0 0 8px rgba(217, 154, 0, .18); }
